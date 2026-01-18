@@ -687,7 +687,7 @@
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
-  padding: var(--space-48);
+  padding: var(--space-64);
   box-shadow: var(--shadow-lg);
 }
 
@@ -698,25 +698,26 @@
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
+  gap: var(--space-20);
+  margin-bottom: var(--space-32);
 }
 
 .form-group {
-  margin-bottom: var(--space-24);
+  margin-bottom: var(--space-32);
 }
 
 .form-group label {
   display: block;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text);
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-16);
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: var(--space-16) var(--space-20);
+  padding: var(--space-20) var(--space-24);
   font-size: var(--font-size-lg);
   font-family: var(--font-sans);
   color: var(--color-text);
@@ -724,17 +725,20 @@
   border: 2px solid var(--color-border);
   border-radius: var(--radius-lg);
   transition: all var(--transition-base);
-  min-height: 52px;
+  height: 64px;
+  line-height: 1.5;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: var(--color-text-tertiary);
+  opacity: 0.7;
 }
 
 .form-group input:hover,
 .form-group textarea:hover {
   border-color: var(--color-border-hover);
+  background-color: var(--color-bg);
 }
 
 .form-group input:focus,
@@ -742,26 +746,28 @@
   outline: none;
   border-color: var(--color-primary);
   background-color: var(--color-bg);
-  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12);
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 160px;
-  padding-top: var(--space-16);
+  min-height: 200px;
+  height: auto;
+  padding-top: var(--space-20);
   line-height: 1.6;
 }
 
 .contact-submit {
   width: 100%;
-  margin-top: var(--space-16);
-  font-size: var(--font-size-lg);
-  padding: var(--space-18) var(--space-32);
-  min-height: 56px;
+  margin-top: var(--space-24);
+  font-size: var(--font-size-xl);
+  padding: var(--space-20) var(--space-32);
+  min-height: 64px;
+  font-weight: var(--font-weight-semibold);
 }
 
 .form-note {
-  margin-top: var(--space-20);
+  margin-top: var(--space-24);
   font-size: var(--font-size-sm);
   color: var(--color-text-tertiary);
   text-align: center;
@@ -802,11 +808,27 @@
   }
   
   .contact-form-wrapper {
-    padding: var(--space-32);
+    padding: var(--space-40);
   }
   
   .form-row {
     grid-template-columns: 1fr;
+    margin-bottom: 0;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: var(--font-size-base);
+    height: 56px;
+  }
+  
+  .form-group textarea {
+    min-height: 160px;
+  }
+  
+  .contact-submit {
+    font-size: var(--font-size-lg);
+    min-height: 56px;
   }
 }
 
