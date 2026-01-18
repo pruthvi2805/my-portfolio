@@ -125,45 +125,9 @@
    ============================================ */
 
 .resume-header {
-  background: 
-    radial-gradient(
-      ellipse 80% 50% at 50% -20%,
-      rgba(0, 113, 227, 0.05),
-      transparent
-    ),
-    var(--color-bg-secondary);
-  padding: var(--space-96) var(--space-24);
+  background: var(--color-bg);
+  padding: var(--space-64) var(--space-24) var(--space-48) var(--space-24);
   text-align: center;
-  border-bottom: 1px solid var(--color-border);
-  position: relative;
-}
-
-/* Gradient fade to suggest more content below */
-.resume-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(248, 251, 253, 0.3) 40%,
-    rgba(248, 251, 253, 0.8) 80%,
-    var(--color-bg-secondary) 100%
-  );
-  pointer-events: none;
-}
-
-[data-theme="dark"] .resume-header::after {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(28, 28, 30, 0.3) 40%,
-    rgba(28, 28, 30, 0.8) 80%,
-    var(--color-bg-secondary) 100%
-  );
 }
 
 [data-theme="dark"] .resume-header {
@@ -177,27 +141,27 @@
 }
 
 .resume-header__name {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-16);
-  letter-spacing: -0.025em;
+  margin-bottom: var(--space-12);
+  letter-spacing: -0.02em;
 }
 
 .resume-header__title {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   color: var(--color-text-secondary);
   font-weight: var(--font-weight-regular);
-  margin-bottom: var(--space-32);
+  margin-bottom: var(--space-24);
 }
 
 .resume-header__contact {
   display: flex;
-  gap: var(--space-32);
+  gap: var(--space-24);
   justify-content: center;
   flex-wrap: wrap;
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-32);
+  margin-bottom: var(--space-24);
 }
 
 .resume-header__contact a {
@@ -220,14 +184,16 @@
 }
 
 .resume-section {
-  margin-bottom: var(--space-96);
+  margin-bottom: var(--space-64);
 }
 
 .resume-section__title {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
-  margin-bottom: var(--space-48);
+  margin-bottom: var(--space-32);
+  padding-bottom: var(--space-16);
+  border-bottom: 1px solid var(--color-border);
   letter-spacing: -0.02em;
 }
 
@@ -235,7 +201,7 @@
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: var(--space-64);
+  gap: var(--space-48);
 }
 
 .timeline-item {
@@ -375,20 +341,20 @@
 
 @media (max-width: 768px) {
   .resume-header {
-    padding: var(--space-64) var(--space-16);
+    padding: var(--space-48) var(--space-16) var(--space-32) var(--space-16);
   }
   
   .resume-header__name {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
   }
   
   .resume-header__title {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
   }
   
   .resume-header__contact {
     flex-direction: column;
-    gap: var(--space-12);
+    gap: var(--space-8);
   }
   
   .timeline-item {
