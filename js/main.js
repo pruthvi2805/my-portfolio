@@ -1,5 +1,6 @@
 // ============================================
-// THEME MANAGEMENT (Dark Mode)
+// APPLE-INSPIRED INTERACTIONS
+// Smooth, purposeful, delightful
 // ============================================
 
 class ThemeManager {
@@ -33,6 +34,7 @@ class ThemeManager {
 
   updateThemeIcon() {
     if (this.themeToggle) {
+      // Using minimal emoji icons for clean feel
       this.themeToggle.textContent = this.theme === 'light' ? '🌙' : '☀️';
       this.themeToggle.setAttribute('aria-label', 
         this.theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
@@ -121,7 +123,8 @@ class NavHighlighter {
 }
 
 // ============================================
-// SCROLL ANIMATIONS (Intersection Observer)
+// SCROLL ANIMATIONS - INTERSECTION OBSERVER
+// Apple-style staggered reveals
 // ============================================
 
 class ScrollAnimations {
@@ -135,13 +138,16 @@ class ScrollAnimations {
 
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -80px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          // Add visible class with slight delay for natural feel
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 100);
           observer.unobserve(entry.target);
         }
       });
@@ -152,7 +158,7 @@ class ScrollAnimations {
 }
 
 // ============================================
-// SMOOTH SCROLLING
+// SMOOTH SCROLLING FOR ANCHOR LINKS
 // ============================================
 
 class SmoothScroll {
@@ -170,7 +176,7 @@ class SmoothScroll {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           e.preventDefault();
-          const headerOffset = 80;
+          const headerOffset = 60;
           const elementPosition = targetElement.offsetTop;
           const offsetPosition = elementPosition - headerOffset;
 
@@ -185,27 +191,182 @@ class SmoothScroll {
 }
 
 // ============================================
+// ENHANCED HEADER BEHAVIOR
+// Subtle background change on scroll
+// ============================================
+
+class HeaderScroll {
+  constructor() {
+    this.header = document.querySelector('.header');
+    this.lastScroll = 0;
+    this.init();
+  }
+
+  init() {
+    if (!this.header) return;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      // Add shadow when scrolled
+      if (currentScroll > 10) {
+        this.header.style.boxShadow = '0 1px 0 0 rgba(0, 0, 0, 0.1)';
+      } else {
+        this.header.style.boxShadow = 'none';
+      }
+      
+      this.lastScroll = currentScroll;
+    });
+  }
+}
+
+// ============================================
+// BUTTON INTERACTION ENHANCEMENTS
+// Add subtle feedback to all buttons
+// ============================================
+
+class ButtonEnhancements {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    const buttons = document.querySelectorAll('.btn');
+    
+    buttons.forEach(button => {
+      // Add ripple effect on click (subtle)
+      button.addEventListener('click', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const ripple = document.createElement('span');
+        ripple.style.cssText = `
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.5);
+          left: ${x}px;
+          top: ${y}px;
+          transform: translate(-50%, -50%) scale(0);
+          animation: ripple 0.6s ease-out;
+          pointer-events: none;
+        `;
+        
+        button.style.position = 'relative';
+        button.style.overflow = 'hidden';
+        button.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+    
+    // Add ripple animation
+    if (!document.getElementById('ripple-animation')) {
+      const style = document.createElement('style');
+      style.id = 'ripple-animation';
+      style.textContent = `
+        @keyframes ripple {
+          to {
+            transform: translate(-50%, -50%) scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }
+}
+
+// ============================================
+// CARD HOVER ENHANCEMENTS
+// Subtle 3D tilt effect on cards (optional, very subtle)
+// ============================================
+
+class CardEffects {
+  constructor() {
+    this.cards = document.querySelectorAll('.card, .project-card, .contact-method');
+    this.init();
+  }
+
+  init() {
+    this.cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+}
+
+// ============================================
+// PERFORMANCE OPTIMIZATION
+// Reduce motion for users who prefer it
+// ============================================
+
+class ReducedMotion {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+    if (prefersReducedMotion.matches) {
+      // Disable animations for accessibility
+      document.documentElement.style.setProperty('--transition-fast', '0ms');
+      document.documentElement.style.setProperty('--transition-base', '0ms');
+      document.documentElement.style.setProperty('--transition-slow', '0ms');
+      
+      // Remove animation classes
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.add('visible');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+  }
+}
+
+// ============================================
 // INITIALIZE ALL MODULES
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize all features
+  // Core functionality
   new ThemeManager();
   new MobileNav();
   new NavHighlighter();
   new ScrollAnimations();
   new SmoothScroll();
+  new HeaderScroll();
+  
+  // Enhanced interactions
+  new ButtonEnhancements();
+  new CardEffects();
+  
+  // Accessibility
+  new ReducedMotion();
 
-  // Console message for developers
-  console.log('%c👨‍💻 Portfolio Website', 'font-size: 20px; font-weight: bold; color: #2563eb;');
-  console.log('%cBuilt with vanilla HTML, CSS, and JavaScript', 'font-size: 12px; color: #64748b;');
+  // Hide loading animation if present
+  const loader = document.querySelector('.loader');
+  if (loader) {
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      setTimeout(() => loader.remove(), 300);
+    }, 500);
+  }
 });
 
 // ============================================
 // UTILITY FUNCTIONS
 // ============================================
 
-// Debounce function for performance optimization
+// Debounce function for performance
 function debounce(func, wait) {
   let timeout;
   return function executedFunction(...args) {
@@ -218,7 +379,26 @@ function debounce(func, wait) {
   };
 }
 
+// Throttle function for scroll events
+function throttle(func, limit) {
+  let inThrottle;
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
 // Export for use in other scripts if needed
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { ThemeManager, MobileNav, NavHighlighter, ScrollAnimations, SmoothScroll };
+  module.exports = {
+    ThemeManager,
+    MobileNav,
+    NavHighlighter,
+    ScrollAnimations,
+    SmoothScroll,
+    HeaderScroll
+  };
 }

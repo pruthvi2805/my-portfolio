@@ -6,21 +6,42 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*~
 
 # Logs
 logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Dependencies
+# Dependencies (if adding build tools later)
 node_modules/
+.npm
+.yarn
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build output (if adding build process later)
+dist/
+build/
+
+# Temporary files
+*.tmp
+.cache/
