@@ -3,12 +3,12 @@
  * Handles form submissions with Turnstile verification and email sending
  */
 
-const TURNSTILE_SECRET = '0x4AAAAAACNQM_xprD8ZVC4ST35RTmXNaPw';
+// Secrets are stored as environment variables in Cloudflare Worker settings
 const TO_EMAIL = 'me@kpruthvi.com';
 const FROM_EMAIL = 'noreply@kpruthvi.com';
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     // Handle CORS preflight
     if (request.method === 'OPTIONS') {
       return new Response(null, {
@@ -35,7 +35,7 @@ export default {
       }
 
       // Verify Turnstile token
-      const turnstileValid = await verifyTurnstile(token, request);
+      const turnstileValid = await verifyTurnstile(token, request, env);
       if (!turnstileValid) {
         return jsonResponse({ error: 'Spam protection check failed. Please try again.' }, 400);
       }
@@ -54,11 +54,11 @@ export default {
   },
 };
 
-async function verifyTurnstile(token, request) {
+async function verifyTurnstile(token, request, env) {
   const ip = request.headers.get('CF-Connecting-IP');
   
   const formData = new URLSearchParams();
-  formData.append('secret', TURNSTILE_SECRET);
+  formData.append('secret', env.TURNSTILE_SECRET);
   formData.append('response', token);
   formData.append('remoteip', ip);
 
