@@ -558,11 +558,11 @@ a:focus-visible {
   border-radius: var(--radius-sm);
 }
 
-/* Scroll Animations - Apple Style */
+/* Scroll Animations - Apple Style (Faster) */
 .fade-in {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  transform: translateY(20px);
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
 }
 
 .fade-in.visible {
@@ -571,11 +571,64 @@ a:focus-visible {
 }
 
 /* Stagger animation delay for sequential reveals */
-.fade-in:nth-child(1) { transition-delay: 0.05s; }
-.fade-in:nth-child(2) { transition-delay: 0.1s; }
-.fade-in:nth-child(3) { transition-delay: 0.15s; }
-.fade-in:nth-child(4) { transition-delay: 0.2s; }
-.fade-in:nth-child(5) { transition-delay: 0.25s; }
+.fade-in:nth-child(1) { transition-delay: 0.03s; }
+.fade-in:nth-child(2) { transition-delay: 0.06s; }
+.fade-in:nth-child(3) { transition-delay: 0.09s; }
+.fade-in:nth-child(4) { transition-delay: 0.12s; }
+.fade-in:nth-child(5) { transition-delay: 0.15s; }
+
+/* ============================================
+   SCROLL MORE INDICATOR (Right Side)
+   ============================================ */
+
+.scroll-more-indicator {
+  position: fixed;
+  right: var(--space-24);
+  bottom: 50%;
+  transform: translateY(50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.scroll-more-indicator.visible {
+  opacity: 0.5;
+}
+
+.scroll-more-indicator__icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-2xl);
+  animation: bounceVertical 2s ease-in-out infinite;
+}
+
+@keyframes bounceVertical {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(4px);
+  }
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .scroll-more-indicator {
+    display: none;
+  }
+}
 
 /* ============================================
    PAGE LOAD ANIMATION

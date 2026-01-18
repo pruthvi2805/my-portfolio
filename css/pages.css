@@ -187,7 +187,12 @@
 }
 
 .resume-section {
-  margin-bottom: var(--space-48);
+  margin-bottom: var(--space-40);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-32);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
 }
 
 .resume-section__title {
@@ -382,7 +387,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: var(--space-32);
+  gap: var(--space-24);
 }
 
 .project-card {
@@ -390,17 +395,18 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  transition: all var(--transition-slow);
+  transition: all var(--transition-base);
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow-md);
   /* Better touch feedback */
   -webkit-tap-highlight-color: transparent;
 }
 
 .project-card:hover {
   box-shadow: var(--shadow-xl);
-  transform: translateY(-6px);
-  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  border-color: var(--color-border-hover);
 }
 
 /* Touch feedback for mobile */
@@ -520,19 +526,20 @@
   padding: var(--space-32);
   /* Ensure minimum tap target */
   min-height: 80px;
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   transition: all var(--transition-base);
   text-decoration: none;
+  box-shadow: var(--shadow-sm);
   /* Better touch feedback */
   -webkit-tap-highlight-color: transparent;
 }
 
 .contact-method:hover {
   box-shadow: var(--shadow-md);
-  transform: translateX(4px);
-  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  border-color: var(--color-border-hover);
 }
 
 /* Touch feedback for mobile */

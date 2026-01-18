@@ -342,6 +342,36 @@ class ReducedMotion {
 }
 
 // ============================================
+// SCROLL MORE INDICATOR
+// ============================================
+
+class ScrollMoreIndicator {
+  constructor() {
+    this.indicator = document.querySelector('.scroll-more-indicator');
+    this.init();
+  }
+
+  init() {
+    if (!this.indicator) return;
+
+    // Show/hide based on scroll position
+    window.addEventListener('scroll', () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+      // Show indicator when there's more content below
+      if (scrollPercentage < 90 && scrollTop > 100) {
+        this.indicator.classList.add('visible');
+      } else {
+        this.indicator.classList.remove('visible');
+      }
+    });
+  }
+}
+
+// ============================================
 // INITIALIZE ALL MODULES
 // ============================================
 
@@ -353,6 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
   new ScrollAnimations();
   new SmoothScroll();
   new HeaderScroll();
+  new ScrollMoreIndicator();
   
   // Enhanced interactions
   new ButtonEnhancements();
