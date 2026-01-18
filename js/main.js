@@ -508,7 +508,14 @@ class ContactFormHandler {
     const name = `${firstName} ${lastName}`;
     
     // Get Turnstile token
-    const turnstileResponse = turnstile.getResponse();
+    let turnstileResponse = '';
+    try {
+      if (typeof turnstile !== 'undefined') {
+        turnstileResponse = turnstile.getResponse();
+      }
+    } catch (error) {
+      console.error('Turnstile error:', error);
+    }
 
     if (!turnstileResponse) {
       this.showStatus('Please complete the security check.', 'error');
