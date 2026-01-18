@@ -1,49 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pruthvi - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pruthvi - Senior Pega System Architect specializing in enterprise solutions and digital transformation.">
+  <meta name="keywords" content="Pega, System Architect, Developer, Portfolio, ASN Bank">
+  <meta name="author" content="Pruthvi">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain.com/">
+  <meta property="og:title" content="Pruthvi - Senior Pega System Architect">
+  <meta property="og:description" content="Senior Pega System Architect specializing in enterprise solutions and digital transformation.">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://your-domain.com/">
+  <meta property="twitter:title" content="Pruthvi - Senior Pega System Architect">
+  <meta property="twitter:description" content="Senior Pega System Architect specializing in enterprise solutions and digital transformation.">
+  
+  <title>Pruthvi - Senior Pega System Architect</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Pruthvi</h1>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="nav__brand">Pruthvi</a>
+      
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+      
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="resume.html" class="nav__link">Resume</a></li>
+          <li><a href="projects.html" class="nav__link">Projects</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        <section id="hero">
-            <h2>Hi, I'm Pruthvi</h2>
-            <p>Welcome to my portfolio</p>
-        </section>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero__content">
+        <p class="hero__greeting">Hi, I'm</p>
+        <h1 class="hero__title">Pruthvi Kautikwar</h1>
+        <p class="hero__description">
+          Senior Pega System Architect at ASN Bank, Netherlands, specializing in building scalable enterprise solutions and driving digital transformation initiatives.
+        </p>
+        <div class="hero__actions">
+          <a href="resume.html" class="btn btn-primary btn-lg">View Resume</a>
+          <a href="projects.html" class="btn btn-outline btn-lg">See Projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Add your bio here...</p>
-        </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__content">
+      <p class="footer__text">© 2026 Pruthvi Kautikwar. All rights reserved.</p>
+    </div>
+  </footer>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- Add your projects here -->
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: kautikwarpruthvi@gmail.com</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Pruthvi. All rights reserved.</p>
-    </footer>
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
 </body>
 </html>
