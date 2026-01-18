@@ -583,38 +583,40 @@ a:focus-visible {
 
 .scroll-indicator {
   position: absolute;
-  bottom: var(--space-48);
+  bottom: var(--space-64);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-8);
-  color: var(--color-text-secondary);
+  gap: var(--space-12);
+  color: var(--color-text-tertiary);
   opacity: 0;
-  animation: fadeInUp 0.8s var(--ease-out) 1s forwards;
+  animation: fadeInUp 0.8s var(--ease-out) 1.2s forwards;
   cursor: pointer;
-  transition: opacity var(--transition-fast);
+  transition: opacity var(--transition-base), color var(--transition-fast);
 }
 
 .scroll-indicator:hover {
-  opacity: 0.7;
+  opacity: 1;
+  color: var(--color-text-secondary);
 }
 
 .scroll-indicator__text {
   font-size: var(--font-size-xs);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   font-weight: var(--font-weight-medium);
 }
 
 .scroll-indicator__icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: bounce 2s infinite;
+  font-size: var(--font-size-lg);
+  animation: bounce 2.5s ease-in-out infinite;
 }
 
 @keyframes bounce {
@@ -622,10 +624,10 @@ a:focus-visible {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
   60% {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
   }
 }
 
@@ -633,6 +635,17 @@ a:focus-visible {
 .scroll-indicator.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .scroll-indicator {
+    bottom: var(--space-40);
+  }
+  
+  .scroll-indicator__text {
+    font-size: 10px;
+  }
 }
 
 /* ============================================
