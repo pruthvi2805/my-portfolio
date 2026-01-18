@@ -124,12 +124,76 @@
    RESUME PAGE
    ============================================ */
 
-.resume-header {
-  background: var(--color-bg-secondary);
-  padding: var(--space-40) var(--space-24) var(--space-32) var(--space-24);
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: var(--space-48);
+/* Floating Download Button - Apple FAB Style */
+.floating-download-btn {
+  position: fixed;
+  top: calc(var(--header-height) + var(--space-16));
+  right: var(--space-32);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-12) var(--space-24);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInDown 0.4s var(--ease-out) 0.6s forwards;
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-download-btn:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.floating-download-btn:active {
+  transform: translateY(0);
+}
+
+.floating-download-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Adjust for mobile */
+@media (max-width: 768px) {
+  .floating-download-btn {
+    top: auto;
+    bottom: var(--space-24);
+    right: var(--space-16);
+    padding: var(--space-12) var(--space-20);
+    font-size: var(--font-size-xs);
+  }
+  
+  .floating-download-btn span {
+    display: none;
+  }
+  
+  .floating-download-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Resume content spacing adjustment */
+.resume-content {
+  padding-top: var(--space-64);
 }
 
 /* Resume Section Navigation - Horizontal Sticky Bar */
@@ -149,9 +213,13 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   opacity: 0;
-  transform: translateY(-100%);
-  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
-  pointer-events: none;
+  animation: fadeInNav 0.4s var(--ease-out) 0.2s forwards;
+}
+
+@keyframes fadeInNav {
+  to {
+    opacity: 1;
+  }
 }
 
 .resume-section-nav::-webkit-scrollbar {
@@ -160,8 +228,6 @@
 
 .resume-section-nav.visible {
   opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
 }
 
 .resume-section-nav__link {
@@ -202,60 +268,6 @@
     padding: var(--space-12) var(--space-16);
     font-size: var(--font-size-xs);
   }
-}
-
-[data-theme="dark"] .resume-header {
-  background: 
-    radial-gradient(
-      ellipse 80% 50% at 50% -20%,
-      rgba(41, 151, 255, 0.08),
-      transparent
-    ),
-    var(--color-bg-secondary);
-}
-
-.resume-header__name {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-8);
-  letter-spacing: -0.02em;
-}
-
-.resume-header__title {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  font-weight: var(--font-weight-regular);
-  margin-bottom: var(--space-16);
-}
-
-.resume-header__contact {
-  display: flex;
-  gap: var(--space-20);
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-20);
-}
-
-.resume-header__contact a {
-  color: var(--color-text-secondary);
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-  transition: color var(--transition-fast);
-}
-
-.resume-header__contact a:hover {
-  color: var(--color-primary);
-}
-
-.resume-actions {
-  display: flex;
-  gap: var(--space-12);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: var(--space-4);
 }
 
 .resume-section {
@@ -420,25 +432,6 @@
 }
 
 @media (max-width: 768px) {
-  .resume-header {
-    padding: var(--space-32) var(--space-16) var(--space-24) var(--space-16);
-    margin-bottom: var(--space-32);
-  }
-  
-  .resume-header__name {
-    font-size: var(--font-size-2xl);
-  }
-  
-  .resume-header__title {
-    font-size: var(--font-size-base);
-  }
-  
-  .resume-header__contact {
-    flex-direction: column;
-    gap: var(--space-6);
-    font-size: var(--font-size-xs);
-  }
-  
   .timeline-item {
     padding-left: var(--space-24);
   }
@@ -449,6 +442,10 @@
   
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .resume-content {
+    padding-top: var(--space-48);
   }
 }
 
@@ -706,7 +703,8 @@
   .footer,
   .nav,
   .theme-toggle,
-  .resume-actions,
+  .floating-download-btn,
+  .resume-section-nav,
   .nav__toggle {
     display: none !important;
   }
@@ -720,9 +718,8 @@
     padding-top: 0;
   }
   
-  .resume-header {
-    background: white;
-    padding: var(--space-32) 0;
+  .resume-content {
+    padding-top: 0;
   }
   
   .resume-section {
