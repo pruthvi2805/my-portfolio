@@ -186,18 +186,27 @@ class SmoothScroll {
         if (targetElement) {
           e.preventDefault();
           
-          // Calculate offset: header + section nav (if exists)
+          // Calculate total offset for sticky elements
           const header = document.querySelector('.header');
           const sectionNav = document.querySelector('.resume-section-nav');
-          let headerOffset = header ? header.offsetHeight : 48;
           
-          // Add section nav height if it exists and is visible
-          if (sectionNav) {
-            headerOffset += 60; // section nav height + padding
+          let totalOffset = 0;
+          
+          // Add header height
+          if (header) {
+            totalOffset += header.offsetHeight;
           }
           
-          const elementPosition = targetElement.offsetTop;
-          const offsetPosition = elementPosition - headerOffset;
+          // Add section nav height if it exists
+          if (sectionNav) {
+            totalOffset += sectionNav.offsetHeight;
+          }
+          
+          // Add extra buffer space for breathing room
+          totalOffset += 20;
+          
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - totalOffset;
 
           window.scrollTo({
             top: offsetPosition,
@@ -431,13 +440,24 @@ class ResumeSectionNav {
   }
 
   updateActiveSection() {
-    // Use consistent offset with smooth scroll
+    // Calculate offset matching smooth scroll behavior
     const header = document.querySelector('.header');
-    const headerHeight = header ? header.offsetHeight : 48;
-    const navHeight = 60; // section nav height + padding
-    const offset = headerHeight + navHeight + 20; // extra 20px for better feel
+    const sectionNav = document.querySelector('.resume-section-nav');
     
-    const scrollPos = window.pageYOffset + offset;
+    let totalOffset = 0;
+    
+    if (header) {
+      totalOffset += header.offsetHeight;
+    }
+    
+    if (sectionNav) {
+      totalOffset += sectionNav.offsetHeight;
+    }
+    
+    // Add buffer and extra for better UX
+    totalOffset += 30;
+    
+    const scrollPos = window.pageYOffset + totalOffset;
 
     this.sections.forEach((section, index) => {
       const sectionTop = section.offsetTop;
