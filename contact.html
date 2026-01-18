@@ -47,58 +47,67 @@
 
   <!-- Main Content -->
   <main id="main-content">
-    <div class="container contact-page-section">
-      <div class="contact-container">
-        
-        <!-- Contact Intro -->
-        <div class="contact-intro fade-in">
-          <h1 class="contact-intro__title">Get in Touch</h1>
-          <p class="contact-intro__description">
-            Available for senior Pega architecture roles and consulting opportunities across all industries.
-          </p>
-        </div>
-
-        <!-- Contact Methods -->
-        <div class="contact-methods">
+    <div class="contact-page-section">
+      <div class="container">
+        <div class="contact-split-layout fade-in">
           
-          <!-- Email -->
-          <a href="mailto:me@kpruthvi.com" class="contact-method fade-in">
-            <div class="contact-method__icon">✉️</div>
-            <div class="contact-method__content">
-              <div class="contact-method__label">Email</div>
-              <div class="contact-method__value">me@kpruthvi.com</div>
-            </div>
-          </a>
+          <!-- Left Side - Contact Info -->
+          <div class="contact-info">
+            <h1 class="contact-info__title">Get in Touch</h1>
+            <p class="contact-info__subtitle">I'd like to hear from you!</p>
+            
+            <p class="contact-info__description">
+              Available for senior Pega architecture roles and consulting opportunities across all industries. Whether you have questions about Pega development or want to discuss potential collaborations, feel free to reach out.
+            </p>
 
-          <!-- Location -->
-          <div class="contact-method fade-in">
-            <div class="contact-method__icon">📍</div>
-            <div class="contact-method__content">
-              <div class="contact-method__label">Location</div>
-              <div class="contact-method__value">Utrecht, Netherlands</div>
+            <div class="contact-details">
+              <div class="contact-detail-item">
+                <span class="contact-detail-icon">✉️</span>
+                <a href="mailto:me@kpruthvi.com">me@kpruthvi.com</a>
+              </div>
+              <div class="contact-detail-item">
+                <span class="contact-detail-icon">📍</span>
+                <span>Utrecht, Netherlands</span>
+              </div>
+            </div>
+
+            <div class="contact-social-links">
+              <a href="https://nl.linkedin.com/in/pruthvikauticwar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">💼</a>
+              <a href="https://github.com/pruthvi2805" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">💻</a>
             </div>
           </div>
 
-          <!-- LinkedIn -->
-          <a href="https://nl.linkedin.com/in/pruthvikauticwar" target="_blank" rel="noopener noreferrer" class="contact-method fade-in">
-            <div class="contact-method__icon">💼</div>
-            <div class="contact-method__content">
-              <div class="contact-method__label">LinkedIn</div>
-              <div class="contact-method__value">linkedin.com/in/pruthvikauticwar</div>
-            </div>
-          </a>
+          <!-- Right Side - Contact Form -->
+          <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" required>
+                </div>
+              </div>
 
-          <!-- GitHub -->
-          <a href="https://github.com/pruthvi2805" target="_blank" rel="noopener noreferrer" class="contact-method fade-in">
-            <div class="contact-method__icon">💻</div>
-            <div class="contact-method__content">
-              <div class="contact-method__label">GitHub</div>
-              <div class="contact-method__value">github.com/pruthvi2805</div>
-            </div>
-          </a>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg contact-submit">Send Message</button>
+              
+              <p class="form-note">* Once migrated to Cloudflare, this form will send directly to my email with spam protection.</p>
+            </form>
+          </div>
 
         </div>
-
       </div>
     </div>
   </main>
