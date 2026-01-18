@@ -596,17 +596,21 @@ a:focus-visible {
 }
 
 .scroll-more-indicator.visible {
-  opacity: 0.6;
+  opacity: 1;
 }
 
 .scroll-more-indicator__icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-tertiary);
-  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-md);
   animation: bounceVertical 2s ease-in-out infinite;
 }
 
