@@ -185,7 +185,17 @@ class SmoothScroll {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           e.preventDefault();
-          const headerOffset = 60;
+          
+          // Calculate offset: header + section nav (if exists)
+          const header = document.querySelector('.header');
+          const sectionNav = document.querySelector('.resume-section-nav');
+          let headerOffset = header ? header.offsetHeight : 48;
+          
+          // Add section nav height if it exists and is visible
+          if (sectionNav) {
+            headerOffset += 60; // section nav height + padding
+          }
+          
           const elementPosition = targetElement.offsetTop;
           const offsetPosition = elementPosition - headerOffset;
 
@@ -421,7 +431,13 @@ class ResumeSectionNav {
   }
 
   updateActiveSection() {
-    const scrollPos = window.pageYOffset + 200;
+    // Use consistent offset with smooth scroll
+    const header = document.querySelector('.header');
+    const headerHeight = header ? header.offsetHeight : 48;
+    const navHeight = 60; // section nav height + padding
+    const offset = headerHeight + navHeight + 20; // extra 20px for better feel
+    
+    const scrollPos = window.pageYOffset + offset;
 
     this.sections.forEach((section, index) => {
       const sectionTop = section.offsetTop;
