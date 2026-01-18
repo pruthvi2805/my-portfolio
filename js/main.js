@@ -389,21 +389,39 @@ class ResumeSectionNav {
   constructor() {
     this.nav = document.querySelector('.resume-section-nav');
     this.sections = document.querySelectorAll('.resume-section');
+    this.resumeHeader = document.querySelector('.resume-header');
     this.init();
   }
 
   init() {
     if (!this.nav || this.sections.length === 0) return;
 
-    // Highlight active section on scroll
-    window.addEventListener('scroll', () => this.updateActiveSection());
+    // Show/hide navigation based on scroll
+    window.addEventListener('scroll', () => {
+      this.toggleNavVisibility();
+      this.updateActiveSection();
+    });
     
     // Initial check
     this.updateActiveSection();
   }
 
+  toggleNavVisibility() {
+    if (!this.resumeHeader) return;
+    
+    const headerBottom = this.resumeHeader.offsetTop + this.resumeHeader.offsetHeight;
+    const scrollPos = window.pageYOffset;
+
+    // Show nav when scrolled past header
+    if (scrollPos > headerBottom - 48) {
+      this.nav.classList.add('visible');
+    } else {
+      this.nav.classList.remove('visible');
+    }
+  }
+
   updateActiveSection() {
-    const scrollPos = window.pageYOffset + 150;
+    const scrollPos = window.pageYOffset + 200;
 
     this.sections.forEach((section, index) => {
       const sectionTop = section.offsetTop;
