@@ -687,8 +687,8 @@
 /* Apple-style social links */
 .contact-social-links {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  gap: 16px;
   margin-top: 6px;
 }
 
@@ -698,7 +698,15 @@
   font-size: 15px;
   font-weight: 400;
   transition: opacity 0.2s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contact-social-link .social-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .contact-social-link:hover {
