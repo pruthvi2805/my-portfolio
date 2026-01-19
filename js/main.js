@@ -547,7 +547,8 @@ class ContactFormHandler {
       if (response.ok) {
         this.showStatus('Message sent! I\'ll get back to you soon.', 'success');
         this.form.reset();
-        turnstile.reset();
+        // Small delay before resetting Turnstile to avoid visual glitch
+        setTimeout(() => turnstile.reset(), 100);
       } else {
         this.showStatus(data.error || 'Failed to send message. Please try again.', 'error');
         turnstile.reset();

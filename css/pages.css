@@ -742,7 +742,22 @@
 /* Adjust social links for text content */
 .contact-social-icon {
   width: auto;
-  padding: var(--space-10) var(--space-16);
+  padding: var(--space-8) var(--space-12);
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--color-primary);
+  transition: opacity var(--transition-fast);
+}
+
+.contact-social-icon:hover {
+  opacity: 0.7;
+  transform: none;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 /* Adjust spacing without icons */
@@ -828,11 +843,11 @@
 
 .contact-submit {
   width: 100%;
-  margin-top: var(--space-12);
-  font-size: var(--font-size-base);
-  padding: var(--space-14) var(--space-24);
-  min-height: 48px;
-  font-weight: var(--font-weight-semibold);
+  margin-top: var(--space-16);
+  font-size: var(--font-size-sm);
+  padding: var(--space-12) var(--space-20);
+  min-height: 44px;
+  font-weight: var(--font-weight-medium);
 }
 
 .form-note {
@@ -892,7 +907,8 @@
   }
   
   .form-group textarea {
-    min-height: 160px;
+    min-height: 120px;
+    height: 120px;
   }
   
   .contact-submit {
@@ -1022,7 +1038,7 @@
 
 /* Turnstile Widget */
 .cf-turnstile {
-  margin: 20px 0;
+  margin: var(--space-16) 0;
   display: flex;
   justify-content: center;
   min-height: 65px;
