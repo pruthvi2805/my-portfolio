@@ -663,7 +663,7 @@
 .contact-meta {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   font-size: 15px;
   color: var(--color-text-secondary);
   line-height: 1.6;
@@ -682,6 +682,42 @@
 
 .contact-link:hover {
   opacity: 0.8;
+}
+
+/* Apple-style social links */
+.contact-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.contact-social-link {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.contact-social-link .arrow {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.contact-social-link:hover {
+  color: var(--color-primary);
+}
+
+.contact-social-link:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Right Side - Form Card */
@@ -769,12 +805,10 @@
   border-radius: 5px;
 }
 
-/* Turnstile - less prominent */
+/* Turnstile - compact and subtle */
 .contact-form .cf-turnstile {
   margin: 16px 0 12px 0;
-  opacity: 0.85;
-  transform: scale(0.95);
-  transform-origin: left center;
+  opacity: 0.9;
 }
 
 @media (max-width: 1024px) {
