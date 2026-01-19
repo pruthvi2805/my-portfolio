@@ -635,37 +635,37 @@
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 380px 520px;
-  gap: 120px;
-  max-width: 1140px;
+  grid-template-columns: 340px 440px;
+  gap: 80px;
+  max-width: 960px;
   width: 100%;
   align-items: center;
 }
 
 /* Left Side - Info */
 .contact-info h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 .contact-description {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--color-text-secondary);
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .contact-meta {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  font-size: 15px;
+  gap: 8px;
+  font-size: 14px;
   color: var(--color-text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .contact-link {
@@ -685,37 +685,37 @@
 .contact-form-card {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 48px 40px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 36px 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="dark"] .contact-form-card {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 12px;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .form-field label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--color-text);
 }
@@ -724,9 +724,9 @@
 .form-field textarea {
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 12px 14px;
-  font-size: 15px;
+  border-radius: 5px;
+  padding: 10px 12px;
+  font-size: 14px;
   color: var(--color-text);
   font-family: inherit;
   transition: all 0.2s ease;
@@ -734,11 +734,11 @@
 }
 
 .form-field input {
-  height: 44px;
+  height: 40px;
 }
 
 .form-field textarea {
-  min-height: 120px;
+  min-height: 100px;
   resize: vertical;
   line-height: 1.5;
 }
@@ -746,7 +746,7 @@
 .form-field input::placeholder,
 .form-field textarea::placeholder {
   color: var(--color-text-tertiary);
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .form-field input:focus,
@@ -758,17 +758,17 @@
 
 .btn-submit {
   width: 100%;
-  margin-top: 8px;
-  padding: 14px 24px;
-  font-size: 15px;
+  margin-top: 4px;
+  padding: 12px 20px;
+  font-size: 14px;
   font-weight: 600;
-  min-height: 48px;
-  border-radius: 6px;
+  min-height: 44px;
+  border-radius: 5px;
 }
 
 /* Turnstile */
 .contact-form .cf-turnstile {
-  margin: 20px 0 16px 0;
+  margin: 16px 0 12px 0;
 }
 
 @media (max-width: 1024px) {
