@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How this portfolio was built - tech stack, architecture decisions, and tradeoffs.">
+  <title>How I Built This - Pruthvi Kauticwar</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="nav__brand">Pruthvi</a>
+      
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="resume.html" class="nav__link">Resume</a></li>
+          <li><a href="projects.html" class="nav__link">Impact</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <div class="section">
+      <div class="container container-narrow">
+        <div class="fade-in">
+          <h1 style="font-size: var(--font-size-4xl); margin-bottom: var(--space-16);">How I Built This</h1>
+          <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-64);">
+            Architecture decisions, tradeoffs, and why I chose this stack.
+          </p>
+
+          <!-- What it does -->
+          <div style="margin-bottom: var(--space-48);">
+            <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-16);">What This Site Does</h2>
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-12);">
+              A professional portfolio with a working contact form. No server, no database, no backend maintenance.
+            </p>
+            <p style="color: var(--color-text-secondary); line-height: 1.6;">
+              When someone submits the contact form, it verifies they're human (Cloudflare Turnstile), sends me an email (Resend API), and responds instantly. All serverless.
+            </p>
+          </div>
+
+          <!-- Tech Stack -->
+          <div style="margin-bottom: var(--space-48);">
+            <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-16);">Tech Stack & Why</h2>
+            
+            <h3 style="font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--space-12); color: var(--color-text);">Frontend</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-24);">
+              <strong>Pure HTML, CSS, vanilla JavaScript.</strong> No framework, no build step. Faster load times, zero dependencies, works everywhere. For a portfolio, React would be overkill.
+            </p>
+
+            <h3 style="font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--space-12); color: var(--color-text);">Hosting: Cloudflare Pages</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-24);">
+              <strong>Free, global CDN, auto-SSL, GitHub integration.</strong> Push to main → live in 30 seconds. 300+ edge locations mean <50ms response times worldwide. Alternative was Vercel or Netlify, but Cloudflare's integration with Workers sealed it.
+            </p>
+
+            <h3 style="font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--space-12); color: var(--color-text);">Backend: Cloudflare Workers</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-24);">
+              <strong>Serverless functions at the edge.</strong> No servers to maintain, scales automatically, runs in <10ms. Handles form submissions, validates CAPTCHA, triggers emails. Cost: $0 (100k requests/day free tier).
+            </p>
+
+            <h3 style="font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--space-12); color: var(--color-text);">Email: Resend API</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-24);">
+              <strong>Reliable, developer-friendly, 100 emails/day free.</strong> Tried MailChannels first (free but unreliable). Resend has better deliverability, proper SPF/DKIM setup, and clean API. Emails arrive in seconds, not spam folders.
+            </p>
+
+            <h3 style="font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--space-12); color: var(--color-text);">Spam Protection: Cloudflare Turnstile</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6;">
+              <strong>Privacy-friendly CAPTCHA.</strong> No Google reCAPTCHA tracking. Smart challenges only when needed. Free, integrates natively with Workers.
+            </p>
+          </div>
+
+          <!-- Tradeoffs -->
+          <div style="margin-bottom: var(--space-48);">
+            <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-16);">Tradeoffs I Made</h2>
+            
+            <div style="margin-bottom: var(--space-20);">
+              <h3 style="font-size: var(--font-size-base); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-8);">
+                ✅ No framework → Faster, simpler
+              </h3>
+              <p style="color: var(--color-text-secondary); line-height: 1.6; font-size: var(--font-size-sm);">
+                <strong>Gain:</strong> 20KB total JS vs 200KB+ with React. Page loads in <1s on 3G.<br>
+                <strong>Cost:</strong> Manual DOM updates. For a static portfolio, worth it.
+              </p>
+            </div>
+
+            <div style="margin-bottom: var(--space-20);">
+              <h3 style="font-size: var(--font-size-base); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-8);">
+                ✅ Serverless → No infrastructure
+              </h3>
+              <p style="color: var(--color-text-secondary); line-height: 1.6; font-size: var(--font-size-sm);">
+                <strong>Gain:</strong> Zero DevOps, auto-scaling, global edge deployment.<br>
+                <strong>Cost:</strong> Cold starts (rare, <10ms anyway). Vendor lock-in (acceptable for a portfolio).
+              </p>
+            </div>
+
+            <div style="margin-bottom: var(--space-20);">
+              <h3 style="font-size: var(--font-size-base); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-8);">
+                ✅ Email API → Reliability over cost
+              </h3>
+              <p style="color: var(--color-text-secondary); line-height: 1.6; font-size: var(--font-size-sm);">
+                <strong>Gain:</strong> 99.9% deliverability, professional sender reputation.<br>
+                <strong>Cost:</strong> $0 now, $20/mo if I get 3,000+ emails (unlikely for a portfolio).
+              </p>
+            </div>
+
+            <div>
+              <h3 style="font-size: var(--font-size-base); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-8);">
+                ⚠️ Mobile nav → Bottom tabs over hamburger
+              </h3>
+              <p style="color: var(--color-text-secondary); line-height: 1.6; font-size: var(--font-size-sm);">
+                <strong>Gain:</strong> Always visible, iOS-native UX, zero Safari warnings.<br>
+                <strong>Cost:</strong> Takes vertical space. Hamburger menus triggered privacy warnings in Safari due to backdrop-filter. Switched to bottom tabs—more reliable, more familiar to mobile users.
+              </p>
+            </div>
+          </div>
+
+          <!-- Architecture -->
+          <div style="margin-bottom: var(--space-64);">
+            <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-16);">Architecture Flow</h2>
+            <div style="background: var(--color-bg-secondary); padding: var(--space-24); border-radius: var(--radius-xl); border: 1px solid var(--color-border);">
+              <p style="font-family: monospace; font-size: 13px; line-height: 1.8; color: var(--color-text-secondary); margin: 0;">
+                1. User submits form<br>
+                2. Turnstile validates (not a bot)<br>
+                3. Worker receives POST request<br>
+                4. Worker calls Resend API<br>
+                5. Email lands in my inbox<br>
+                6. User sees success message<br>
+                <br>
+                Total time: ~500ms
+              </p>
+            </div>
+          </div>
+
+          <!-- Footer note -->
+          <div style="padding-top: var(--space-32); border-top: 1px solid var(--color-border);">
+            <p style="color: var(--color-text-tertiary); font-size: var(--font-size-sm); line-height: 1.6;">
+              <strong>Why document this?</strong> Senior architects make infrastructure decisions daily. This shows how I think: evaluate options, understand tradeoffs, optimize for the use case. A portfolio doesn't need Kubernetes.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__content">
+      <p class="footer__text">© 2026 Pruthvi Kauticwar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-bottom-nav__link">
+      <span class="mobile-bottom-nav__icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="resume.html" class="mobile-bottom-nav__link">
+      <span class="mobile-bottom-nav__icon">📄</span>
+      <span>Resume</span>
+    </a>
+    <a href="projects.html" class="mobile-bottom-nav__link">
+      <span class="mobile-bottom-nav__icon">💼</span>
+      <span>Impact</span>
+    </a>
+    <a href="contact.html" class="mobile-bottom-nav__link">
+      <span class="mobile-bottom-nav__icon">✉️</span>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
