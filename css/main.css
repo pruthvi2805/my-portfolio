@@ -377,11 +377,8 @@ img {
   
   .nav__toggle {
     display: block;
-    /* Ensure 44px tap target */
     min-width: 44px;
     min-height: 44px;
-    z-index: 1001;
-    position: relative;
   }
   
   .nav__menu {
@@ -393,24 +390,22 @@ img {
     background-color: #ffffff;
     flex-direction: column;
     gap: 0;
-    padding: var(--space-24) 0;
-    transform: translateX(-100%);
+    padding: var(--space-48) var(--space-24);
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out), visibility 0.3s;
-    z-index: 1000;
+    pointer-events: none;
+    z-index: 999;
     overflow-y: auto;
   }
   
-  /* Dark mode solid background */
   [data-theme="dark"] .nav__menu {
     background-color: #000000;
   }
   
   .nav__menu.active {
-    transform: translateX(0);
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
   
   .nav__list {
@@ -427,12 +422,10 @@ img {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-medium);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: #1d1d1f;
-    background-color: transparent;
-    -webkit-tap-highlight-color: rgba(0, 113, 227, 0.1);
   }
   
   [data-theme="dark"] .nav__link {
@@ -441,16 +434,7 @@ img {
   }
   
   .nav__link:active {
-    background-color: rgba(0, 113, 227, 0.05);
-  }
-  
-  .nav__link:hover {
-    background-color: transparent;
-  }
-  
-  .nav__link.active {
-    color: var(--color-primary);
-    font-weight: var(--font-weight-semibold);
+    background-color: rgba(0, 113, 227, 0.1);
   }
   
   .nav__link.active::after {
