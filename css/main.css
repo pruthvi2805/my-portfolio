@@ -476,6 +476,19 @@ img {
   max-width: var(--max-width-content);
   margin: 0 auto;
   padding: 0 var(--space-24);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-16);
+  }
+}
+
+@media (max-width: 374px) {
+  .container {
+    padding: 0 var(--space-12);
+  }
 }
 
 .container-narrow {
