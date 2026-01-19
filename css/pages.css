@@ -726,9 +726,28 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Hide text labels on desktop - icons only */
-.social-link-text {
+/* Hide decorative icons and show text labels on all screen sizes */
+.contact-detail-icon,
+.social-icon-emoji {
   display: none;
+}
+
+.social-link-text {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+/* Adjust social links for text content */
+.contact-social-icon {
+  width: auto;
+  padding: var(--space-10) var(--space-16);
+}
+
+/* Adjust spacing without icons */
+.contact-detail-item {
+  gap: 0;
 }
 
 /* Right Side - Contact Form */
@@ -736,8 +755,8 @@
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
-  padding: var(--space-40) var(--space-48);
-  box-shadow: var(--shadow-lg);
+  padding: var(--space-32);
+  box-shadow: var(--shadow-sm);
 }
 
 .contact-form {
@@ -747,12 +766,12 @@
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-  margin-bottom: var(--space-24);
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
 }
 
 .form-group {
-  margin-bottom: var(--space-24);
+  margin-bottom: var(--space-20);
 }
 
 .form-group label {
@@ -766,15 +785,15 @@
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: var(--space-16) var(--space-20);
-  font-size: var(--font-size-base);
+  padding: var(--space-12) var(--space-16);
+  font-size: var(--font-size-sm);
   font-family: var(--font-sans);
   color: var(--color-text);
   background-color: var(--color-bg-secondary);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-lg);
   transition: all var(--transition-base);
-  height: 56px;
+  height: 48px;
   line-height: 1.5;
 }
 
@@ -800,7 +819,8 @@
 
 .form-group textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px;
+  max-height: 200px;
   height: auto;
   padding-top: var(--space-16);
   line-height: 1.6;
@@ -808,10 +828,10 @@
 
 .contact-submit {
   width: 100%;
-  margin-top: var(--space-16);
-  font-size: var(--font-size-lg);
-  padding: var(--space-18) var(--space-32);
-  min-height: 56px;
+  margin-top: var(--space-12);
+  font-size: var(--font-size-base);
+  padding: var(--space-14) var(--space-24);
+  min-height: 48px;
   font-weight: var(--font-weight-semibold);
 }
 
@@ -880,29 +900,9 @@
     min-height: 56px;
   }
   
-  /* Remove decorative icons on mobile - cleaner, text-focused */
-  .contact-detail-icon,
-  .social-icon-emoji {
-    display: none;
-  }
-  
-  /* Show text labels for social links on mobile */
-  .social-link-text {
-    display: block;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-  }
-  
-  /* Adjust social links for text content */
+  /* Mobile-specific adjustments */
   .contact-social-icon {
-    width: auto;
     padding: var(--space-12) var(--space-20);
-  }
-  
-  /* Adjust spacing without icons */
-  .contact-detail-item {
-    gap: 0;
   }
 }
 
