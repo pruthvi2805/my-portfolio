@@ -409,6 +409,17 @@ img {
     padding: 0 var(--space-16);
   }
   
+  /* Compact brand on mobile */
+  .brand-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+  
+  .brand-name {
+    font-size: var(--font-size-lg);
+  }
+  
   /* Hide hamburger completely */
   .nav__toggle {
     display: none;
