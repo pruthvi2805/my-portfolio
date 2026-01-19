@@ -48,41 +48,9 @@ python -m http.server 8000
 
 Then go to `http://localhost:8000`
 
-For the contact form to work locally, you'll need the Cloudflare Worker deployed (see below).
+## Live Site
 
-## Contact Form Setup
-
-The contact form uses Cloudflare Workers and Resend for email delivery.
-
-### Required Environment Variables (Worker)
-
-- `TURNSTILE_SECRET` - Cloudflare Turnstile secret key
-- `RESEND_API_KEY` - Resend API key
-
-### DNS Setup
-
-If using a custom domain with Resend, add their verification records in Cloudflare DNS.
-
-### Deploy Worker
-
-```bash
-npx wrangler deploy
-```
-
-Update the form action URL in `contact.html` to match your worker URL.
-
-## Deployment
-
-Currently live on Cloudflare Pages at `kpruthvi.com`
-
-To deploy your own:
-
-1. Push to GitHub
-2. Create new site in Cloudflare Pages
-3. Connect repository
-4. Build settings: None (static site)
-5. Deploy
-6. Add custom domain if needed
+Hosted on Cloudflare Pages at [kpruthvi.com](https://kpruthvi.com)
 
 ## Customization
 
@@ -97,5 +65,7 @@ Colors and theme variables are in `css/main.css`:
 ```
 
 ## License
+
+MIT License - feel free to use this as a template for your own portfolio.
 
 Built by Pruthvi Kauticwar, 2026
