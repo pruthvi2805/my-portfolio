@@ -309,6 +309,24 @@
     justify-content: flex-start;
     background-color: var(--color-bg-secondary);
     border-bottom: 2px solid var(--color-border);
+    position: relative;
+  }
+  
+  /* Fade gradient on right to indicate scrollability */
+  .resume-section-nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(to right, transparent, var(--color-bg-secondary));
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  [data-theme="dark"] .resume-section-nav::after {
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.03));
   }
   
   .resume-section-nav__link {
@@ -316,6 +334,8 @@
     font-size: 13px;
     font-weight: var(--font-weight-semibold);
     border-bottom-width: 3px;
+    position: relative;
+    z-index: 2;
   }
   
   .resume-section-nav__link.active {
