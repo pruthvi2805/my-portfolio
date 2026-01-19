@@ -438,8 +438,8 @@ img {
     padding: var(--space-8) var(--space-4);
     min-height: 52px;
     text-decoration: none;
-    color: #aeaeb2;
-    font-size: 10px;
+    color: #8e8e93;
+    font-size: 11px;
     font-weight: var(--font-weight-regular);
     transition: color 0.2s ease;
     letter-spacing: 0.02em;
@@ -451,16 +451,16 @@ img {
   }
   
   .mobile-bottom-nav__link.active {
-    color: #8e8e93;
+    color: #636366;
     font-weight: var(--font-weight-medium);
   }
   
   [data-theme="dark"] .mobile-bottom-nav__link {
-    color: #636366;
+    color: #8e8e93;
   }
   
   [data-theme="dark"] .mobile-bottom-nav__link.active {
-    color: #8e8e93;
+    color: #aeaeb2;
     font-weight: var(--font-weight-medium);
   }
   
