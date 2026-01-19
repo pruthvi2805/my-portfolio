@@ -242,20 +242,13 @@
 }
 
 /* Resume Section Navigation - Horizontal Sticky Bar */
-/* Hide main header on resume page for cleaner focus */
-body:has(.resume-section-nav) .header {
-  display: none;
-}
-
 .resume-section-nav {
   position: sticky;
-  top: 0;
-  background-color: var(--color-bg-elevated);
-  backdrop-filter: saturate(180%) blur(var(--blur-md));
-  -webkit-backdrop-filter: saturate(180%) blur(var(--blur-md));
+  top: var(--header-height);
+  background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   z-index: 50;
-  padding: var(--space-16) var(--space-24);
+  padding: var(--space-12) var(--space-24);
   display: flex;
   justify-content: center;
   gap: var(--space-8);
@@ -264,6 +257,7 @@ body:has(.resume-section-nav) .header {
   scrollbar-width: none;
   opacity: 0;
   animation: fadeInNav 0.4s var(--ease-out) 0.2s forwards;
+  margin-top: calc(var(--header-height) * -1);
 }
 
 @keyframes fadeInNav {
