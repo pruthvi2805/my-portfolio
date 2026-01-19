@@ -385,29 +385,9 @@ img {
     display: none;
   }
   
-  /* Create bottom tab bar */
-  .header::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 64px;
-    background-color: #ffffff;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 999;
-  }
-  
-  [data-theme="dark"] .header::after {
-    background-color: #000000;
-    border-top-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  /* Bottom nav container */
-  body::after {
-    content: '';
-    display: block;
-    height: 64px;
+  /* Show theme toggle on mobile */
+  .theme-toggle {
+    display: flex;
   }
 }
 
