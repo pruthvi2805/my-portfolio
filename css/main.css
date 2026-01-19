@@ -301,7 +301,7 @@ img {
 
 .brand-name {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
   letter-spacing: -0.01em;
 }
