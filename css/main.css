@@ -405,6 +405,7 @@ img {
     justify-content: space-around;
     align-items: center;
     padding: 0 var(--space-8);
+    padding-bottom: env(safe-area-inset-bottom);
     z-index: 1000;
   }
   
@@ -446,9 +447,14 @@ img {
     color: #0a84ff;
   }
   
-  /* Add bottom padding to main content */
+  /* Add bottom padding to main content - accounts for safe area */
   main {
-    padding-bottom: 80px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+  
+  /* Ensure footer clears bottom nav */
+  .footer {
+    margin-bottom: 0;
   }
 }
 
