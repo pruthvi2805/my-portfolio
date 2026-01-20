@@ -526,7 +526,7 @@ a:hover {
   margin-bottom: 28px;
   padding-bottom: 28px;
   border-bottom: 1px solid #e8e6e3;
-  scroll-margin-top: 24px;
+  scroll-margin-top: 100px;
 }
 
 [data-theme="dark"] .theme-field {
