@@ -12,7 +12,12 @@
       "Bash(git merge:*)",
       "Bash(git rm:*)",
       "Bash(git push:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(git remote set-url:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl:*)",
+      "Bash(dir \"C:\\\\Users\\\\kauti\\\\my-portfolio\\\\generator\\\\libs\")",
+      "Bash(dir /s /b \"C:\\\\Users\\\\kauti\\\\my-portfolio\\\\generator\")"
     ]
   }
 }
