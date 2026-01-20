@@ -491,8 +491,29 @@
 
     /* Mobile */
     @media (max-width: 600px) {
+      .header {
+        padding: 16px 20px;
+      }
+
+      .logo {
+        font-size: 13px;
+      }
+
+      .logo__cursor {
+        width: 6px;
+        height: 14px;
+      }
+
+      .theme-toggle__label {
+        display: none;
+      }
+
+      .theme-toggle {
+        padding: 8px;
+      }
+
       .hero {
-        padding: 60px 0 40px;
+        padding: 40px 0 32px;
       }
 
       .hero__name {
@@ -515,6 +536,10 @@
       .status-line {
         flex-wrap: wrap;
         gap: 12px;
+      }
+
+      .scroll-indicator {
+        display: none;
       }
     }
   </style>
