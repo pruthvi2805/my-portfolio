@@ -105,7 +105,7 @@ const ThemePreviewManager = {
   },
 
   setupThemeCards() {
-    const themeCards = document.querySelectorAll('.theme-pill input[name="theme"]');
+    const themeCards = document.querySelectorAll('.theme-btn input[name="theme"]');
     themeCards.forEach(input => {
       input.addEventListener('change', (e) => {
         this.applyThemePreview(e.target.value);
