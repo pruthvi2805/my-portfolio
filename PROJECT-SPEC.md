@@ -50,12 +50,16 @@ kpruthvi.com/
 │  - Title: "Things I've Built"           │
 │                                         │
 │  ┌─────────────┐  ┌─────────────┐       │
-│  │ My Portfolio│  │  Portfolio  │       │
-│  │             │  │  Generator  │       │
+│  │ My Portfolio│  │  Expense    │       │
+│  │             │  │  Tracker    │       │
 │  │ View →      │  │ Try it →    │       │
 │  └─────────────┘  └─────────────┘       │
 │                                         │
-│  (expandable for future projects)       │
+│  ┌─────────────┐                        │
+│  │  Portfolio  │  (more projects        │
+│  │  Generator  │   can be added)        │
+│  │ Try it →    │                        │
+│  └─────────────┘                        │
 │                                         │
 ├─────────────────────────────────────────┤
 │  Footer (minimal)                       │
@@ -206,6 +210,22 @@ Kept simple - no command line required, all via GitHub web UI.
 ### Phase 3 (Maybe)
 - [ ] Pega Cheat Sheet / Resource Hub
 - [ ] Other utility tools
+
+---
+
+## Existing Projects to Showcase
+
+### Expense Tracker
+- **Repo:** github.com/pruthvi2805/ExpenseTracker
+- **Live:** pruthvi2805.github.io/ExpenseTracker
+- **Description:** A fast, privacy-friendly personal expense tracker that runs entirely in your browser
+- **Tech:** React, Vite, IndexedDB, PWA
+- **Features:**
+  - Monthly budget planning with subcategory tracking
+  - Local-only data storage (no backend)
+  - Import/export JSON backups
+  - Installable PWA (mobile + desktop)
+  - Offline capable
 
 ---
 
