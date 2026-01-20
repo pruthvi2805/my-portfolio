@@ -1423,7 +1423,7 @@ main:has(.resume-layout)::after {
   border: 1px solid var(--color-border);
   border-radius: 5px;
   padding: 10px 12px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--color-text);
   font-family: inherit;
   transition: all 0.2s ease;
