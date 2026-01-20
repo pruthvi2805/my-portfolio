@@ -146,6 +146,18 @@ portfolio/
 - **Template:** HTML string with placeholders, populated via JavaScript
 - **Themes:** CSS variables swapped based on selection
 
+### Hosting Guide (included in ZIP)
+
+The generated ZIP includes a README.md with simple instructions:
+
+1. Create a GitHub account (if needed)
+2. Create a new repository
+3. Upload the ZIP contents
+4. Enable GitHub Pages in repo settings
+5. Access site at username.github.io/repo-name
+
+Kept simple - no command line required, all via GitHub web UI.
+
 ---
 
 ## Design System
