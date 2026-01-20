@@ -177,8 +177,10 @@ body {
   background-color: var(--color-bg);
   transition: background-color 0.5s var(--ease-out), color 0.5s var(--ease-out);
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 main {
@@ -350,7 +352,7 @@ img {
   font-weight: var(--font-weight-regular);
   transition: color var(--transition-fast);
   position: relative;
-  padding: var(--space-4) 0;
+  padding: var(--space-12) var(--space-4);
 }
 
 .nav__link::after {
@@ -386,7 +388,9 @@ img {
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--space-8);
+  padding: var(--space-12);
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -591,6 +595,7 @@ img {
     align-items: center;
     justify-content: center;
     padding: var(--space-8) var(--space-16);
+    min-height: 44px;
     text-decoration: none;
     color: var(--color-text-tertiary);
     font-size: var(--font-size-sm);

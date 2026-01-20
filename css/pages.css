@@ -1347,6 +1347,8 @@ main:has(.resume-layout)::after {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  padding: 8px 4px;
+  min-height: 44px;
 }
 
 .contact-social-link .social-icon {
