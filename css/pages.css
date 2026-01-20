@@ -9,6 +9,7 @@
 
 .home {
   min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -311,6 +312,8 @@ main:has(.resume-layout)::after {
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);
+  min-height: 44px;
+  padding: 8px 0;
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   text-decoration: none;
@@ -370,6 +373,9 @@ main:has(.resume-layout)::after {
   .resume-mobile-nav__link {
     flex-shrink: 0;
     padding: var(--space-8) var(--space-14);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-tertiary);
