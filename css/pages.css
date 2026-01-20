@@ -1261,8 +1261,8 @@ main:has(.resume-layout)::after {
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 340px 440px;
-  gap: 80px;
+  grid-template-columns: minmax(280px, 340px) minmax(360px, 440px);
+  gap: clamp(40px, 5vw, 80px);
   max-width: 960px;
   width: 100%;
   align-items: start;
@@ -1475,7 +1475,7 @@ main:has(.resume-layout)::after {
   margin: 16px 0 12px 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 48px;
