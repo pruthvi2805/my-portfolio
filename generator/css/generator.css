@@ -545,21 +545,22 @@ a:hover {
 
 .theme-pills {
   display: flex;
-  gap: var(--space-8);
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .theme-pill {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-8);
-  padding: var(--space-8) var(--space-14);
+  gap: 8px;
+  padding: 10px 16px;
   background: var(--color-bg-secondary);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  border-radius: 100px;
   cursor: pointer;
   transition: all var(--transition-fast);
-  min-height: 40px;
+  white-space: nowrap;
 }
 
 .theme-pill:hover {
@@ -604,12 +605,12 @@ a:hover {
 /* Mobile: slightly smaller pills */
 @media (max-width: 500px) {
   .theme-picker {
-    gap: var(--space-12);
+    gap: 10px;
   }
 
   .theme-pill {
-    padding: var(--space-6) var(--space-12);
-    min-height: 36px;
+    padding: 8px 12px;
+    gap: 6px;
   }
 
   .theme-pill__dot {
@@ -618,7 +619,7 @@ a:hover {
   }
 
   .theme-pill__name {
-    font-size: var(--font-size-xs);
+    font-size: 12px;
   }
 }
 
