@@ -8,9 +8,9 @@ A quick reference for updating your portfolio content.
 
 | File | What's in it |
 |------|--------------|
-| `index.html` | Home page - intro text, tagline |
-| `resume.html` | Resume - jobs, skills, education, certifications |
-| `contact.html` | Contact page - description, email, social links |
+| `portfolio/index.html` | Home page - intro text, tagline |
+| `portfolio/resume.html` | Resume - jobs, skills, education, certifications |
+| `portfolio/contact.html` | Contact page - description, email, social links |
 
 ---
 
