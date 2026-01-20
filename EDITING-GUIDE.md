@@ -18,7 +18,7 @@ A quick reference for updating your portfolio content.
 
 ### Update intro text
 
-Find this section (around line 84):
+Find this section :
 
 ```html
 <div class="home__intro">
@@ -35,7 +35,7 @@ Edit the text inside the `<p>` tags.
 
 ### Update job title
 
-Find this line (around line 81):
+Find this line :
 
 ```html
 <p class="home__role">Senior Pega System Architect</p>
@@ -47,7 +47,7 @@ Find this line (around line 81):
 
 ### Add a new job
 
-Find the `<div class="timeline">` section (around line 133). Copy this template and paste it **at the top** (newest job first):
+Find the `<div class="timeline">` section . Copy this template and paste it **at the top** (newest job first):
 
 ```html
 <article class="timeline-item">
@@ -76,7 +76,7 @@ Find the job by searching for the company name. Edit the text directly.
 
 ### Update professional summary
 
-Find this section (around line 119):
+Find this section :
 
 ```html
 <section id="professional-summary" class="resume-section">
@@ -91,7 +91,7 @@ Find this section (around line 119):
 
 ### Add a new skill
 
-Find the relevant skill group in the `<section id="skills">` section (around line 247).
+Find the relevant skill group in the `<section id="skills">` section .
 
 Add a new skill pill inside the `<div class="skill-group__pills">`:
 
@@ -121,7 +121,7 @@ Copy this template and paste it inside the `<div class="skills-hierarchy">`:
 
 ### Add a new certification
 
-Find `<section id="certifications">` (around line 329). Add inside `<div class="certifications-list">`:
+Find `<section id="certifications">` . Add inside `<div class="certifications-list">`:
 
 ```html
 <div class="certification-item">
@@ -134,7 +134,7 @@ Find `<section id="certifications">` (around line 329). Add inside `<div class="
 
 ### Update education
 
-Find `<section id="education">` (around line 318). Edit the text directly:
+Find `<section id="education">` . Edit the text directly:
 
 ```html
 <div class="education-item">
@@ -151,7 +151,7 @@ Find `<section id="education">` (around line 318). Edit the text directly:
 
 ### Update description
 
-Find this section (around line 79):
+Find this section :
 
 ```html
 <p class="contact-description">
@@ -161,7 +161,7 @@ Find this section (around line 79):
 
 ### Update email
 
-Find (around line 84):
+Find :
 
 ```html
 <p><a href="mailto:me@kpruthvi.com" class="contact-link">me@kpruthvi.com</a></p>
@@ -171,7 +171,7 @@ Update both the `href="mailto:..."` and the visible text.
 
 ### Update location
 
-Find (around line 85):
+Find :
 
 ```html
 <p>Utrecht, Netherlands</p>
