@@ -54,7 +54,16 @@
       "WebFetch(domain:github.com)",
       "Bash(git clone:*)",
       "Bash(npm install)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(dir:*)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(cat:*)"
     ]
   }
 }
