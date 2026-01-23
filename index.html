@@ -842,7 +842,8 @@
       }
 
       .hero {
-        padding: 70px 24px 24px;
+        min-height: auto;
+        padding: 100px 24px 48px;
       }
 
       .hero__illustration {
@@ -851,6 +852,11 @@
 
       .hero__bio {
         margin-bottom: 28px;
+      }
+
+      /* Ensure alternating backgrounds on mobile */
+      .section--alt {
+        background: var(--color-bg-alt);
       }
 
       /* Visibility helpers */
@@ -863,8 +869,13 @@
       }
 
       .section {
-        min-height: 100vh;
-        padding: 60px 24px;
+        min-height: auto;
+        padding: 48px 24px;
+      }
+
+      /* Prevent horizontal scroll */
+      html, body {
+        overflow-x: hidden;
       }
 
       .section__header {
@@ -937,6 +948,9 @@
         gap: 16px;
         padding-bottom: 16px;
         -webkit-overflow-scrolling: touch;
+        margin: 0 -24px;
+        padding-left: 24px;
+        padding-right: 24px;
       }
 
       .principle-card {
