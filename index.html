@@ -500,14 +500,25 @@
       color: var(--color-text-light);
     }
 
-    /* Featured Section */
-    .featured__grid {
+    /* Builds Section */
+    .builds__grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .featured-card {
+    /* Last 2 cards center in bottom row */
+    .build-card:nth-child(4),
+    .build-card:nth-child(5) {
+      grid-column: span 1;
+    }
+
+    .builds__grid::after {
+      content: '';
+      grid-column: span 1;
+    }
+
+    .build-card {
       background: var(--color-surface);
       border-radius: 16px;
       padding: 24px;
@@ -520,7 +531,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .featured-card::before {
+    .build-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -533,20 +544,20 @@
       transition: transform var(--transition);
     }
 
-    .featured-card:hover {
+    .build-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
     }
 
-    [data-theme="dark"] .featured-card:hover {
+    [data-theme="dark"] .build-card:hover {
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     }
 
-    .featured-card:hover::before {
+    .build-card:hover::before {
       transform: scaleX(1);
     }
 
-    .featured-card__icon {
+    .build-card__icon {
       width: 48px;
       height: 48px;
       border-radius: 12px;
@@ -558,12 +569,12 @@
       color: var(--color-accent);
     }
 
-    .featured-card__icon svg {
+    .build-card__icon svg {
       width: 22px;
       height: 22px;
     }
 
-    .featured-card__badge {
+    .build-card__badge {
       display: inline-block;
       font-size: 10px;
       font-weight: 600;
@@ -576,7 +587,7 @@
       margin-bottom: 10px;
     }
 
-    .featured-card__title {
+    .build-card__title {
       font-family: var(--font-serif);
       font-size: 18px;
       font-weight: 600;
@@ -584,14 +595,14 @@
       margin-bottom: 8px;
     }
 
-    .featured-card__desc {
+    .build-card__desc {
       font-size: 13px;
       color: var(--color-text-muted);
       line-height: 1.6;
       margin-bottom: 16px;
     }
 
-    .featured-card__cta {
+    .build-card__cta {
       font-size: 13px;
       font-weight: 600;
       color: var(--color-accent);
@@ -600,80 +611,18 @@
       gap: 6px;
     }
 
-    .featured-card__cta svg {
+    .build-card__cta svg {
       width: 16px;
       height: 16px;
       transition: transform var(--transition);
     }
 
-    .featured-card:hover .featured-card__cta svg {
+    .build-card:hover .build-card__cta svg {
       transform: translateX(6px);
     }
 
-    .featured-card__content {
+    .build-card__content {
       display: contents;
-    }
-
-    /* Tools Section */
-    .tools__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .tool-card {
-      background: var(--color-surface);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: all var(--transition);
-      text-align: center;
-      border: 1px solid var(--color-border);
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--color-accent);
-    }
-
-    .tool-card__icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      background: var(--color-accent-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      color: var(--color-accent);
-      transition: all var(--transition);
-    }
-
-    .tool-card:hover .tool-card__icon {
-      background: var(--color-accent);
-      color: var(--color-bg);
-      transform: scale(1.1);
-    }
-
-    .tool-card__icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .tool-card__name {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: 8px;
-    }
-
-    .tool-card__desc {
-      font-size: 13px;
-      color: var(--color-text-muted);
-      line-height: 1.6;
     }
 
     /* Principles Section */
@@ -807,15 +756,10 @@
       display: inline;
     }
 
-    /* Desktop: Only show first 2 spotlight cards */
-    .featured-card:nth-child(n+3) {
-      display: none;
-    }
-
     /* Responsive */
     @media (max-width: 1024px) {
-      .featured__grid {
-        grid-template-columns: 1fr;
+      .builds__grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .principles__grid {
@@ -882,7 +826,7 @@
       }
 
       /* Force alternating backgrounds on mobile */
-      #featured {
+      #builds {
         background: var(--color-bg-alt);
       }
 
@@ -894,7 +838,7 @@
         background: var(--color-bg-alt);
       }
 
-      [data-theme="dark"] #featured {
+      [data-theme="dark"] #builds {
         background: #2a231b;
       }
 
@@ -910,29 +854,19 @@
         margin-bottom: 24px;
       }
 
-      /* Hide secondary tools section on mobile - combined into spotlight */
-      #tools {
-        display: none;
-      }
-
-      /* Bento grid for spotlight on mobile - show all 5 tools */
-      .featured-card:nth-child(n+3) {
-        display: block;
-      }
-
-      .featured__grid {
+      .builds__grid {
         grid-template-columns: 1fr;
         gap: 16px;
       }
 
-      .featured-card {
+      .build-card {
         padding: 20px;
         display: flex;
         align-items: flex-start;
         gap: 16px;
       }
 
-      .featured-card__icon {
+      .build-card__icon {
         width: 48px;
         height: 48px;
         border-radius: 12px;
@@ -940,27 +874,27 @@
         flex-shrink: 0;
       }
 
-      .featured-card__icon svg {
+      .build-card__icon svg {
         width: 22px;
         height: 22px;
       }
 
-      .featured-card__content {
+      .build-card__content {
         display: block;
         flex: 1;
         min-width: 0;
       }
 
-      .featured-card__badge {
+      .build-card__badge {
         display: none;
       }
 
-      .featured-card__title {
+      .build-card__title {
         font-size: 16px;
         margin-bottom: 6px;
       }
 
-      .featured-card__desc {
+      .build-card__desc {
         display: block;
         font-size: 13px;
         line-height: 1.5;
@@ -971,11 +905,11 @@
         overflow: hidden;
       }
 
-      .featured-card__cta {
+      .build-card__cta {
         font-size: 13px;
       }
 
-      .featured-card__cta svg {
+      .build-card__cta svg {
         width: 14px;
         height: 14px;
       }
@@ -1049,12 +983,8 @@
         justify-content: center;
       }
 
-      .featured-card {
+      .build-card {
         padding: 28px;
-      }
-
-      .tool-card {
-        padding: 24px 20px;
       }
     }
 
@@ -1144,10 +1074,9 @@
   <nav class="dot-nav" id="dot-nav" aria-label="Section navigation">
     <div class="dot-nav__trail" id="dot-trail"></div>
     <a href="#" class="dot-nav__dot active" data-section="hero" data-index="0" aria-label="Hero section"></a>
-    <a href="#featured" class="dot-nav__dot" data-section="featured" data-index="1" aria-label="Tools section"></a>
-    <a href="#tools" class="dot-nav__dot" data-section="tools" data-index="2" aria-label="More tools section"></a>
-    <a href="#principles" class="dot-nav__dot" data-section="principles" data-index="3" aria-label="Philosophy section"></a>
-    <a href="#contact" class="dot-nav__dot" data-section="contact" data-index="4" aria-label="Contact section"></a>
+    <a href="#builds" class="dot-nav__dot" data-section="builds" data-index="1" aria-label="Builds section"></a>
+    <a href="#principles" class="dot-nav__dot" data-section="principles" data-index="2" aria-label="Philosophy section"></a>
+    <a href="#contact" class="dot-nav__dot" data-section="contact" data-index="3" aria-label="Contact section"></a>
   </nav>
 
   <header class="header" id="header">
@@ -1155,7 +1084,7 @@
       <span class="logo__mark">PK</span>
     </a>
     <nav class="header__nav">
-      <a href="#featured" class="nav-link">Builds</a>
+      <a href="#builds" class="nav-link">Builds</a>
       <a href="contact.html" class="nav-link">Contact</a>
       <a href="https://github.com/pruthvi2805" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
       <button class="theme-toggle" aria-label="Toggle theme">
@@ -1185,7 +1114,7 @@
         <line x1="6" y1="6" x2="18" y2="18"/>
       </svg>
     </button>
-    <a href="#featured" class="mobile-nav__link">Builds</a>
+    <a href="#builds" class="mobile-nav__link">Builds</a>
     <a href="contact.html" class="mobile-nav__link">Contact</a>
     <a href="https://github.com/pruthvi2805" target="_blank" rel="noopener noreferrer" class="mobile-nav__link">GitHub</a>
   </nav>
@@ -1214,7 +1143,7 @@
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
-          <a href="#featured" class="btn btn--secondary">Explore Tools</a>
+          <a href="#builds" class="btn btn--secondary">Explore Tools</a>
         </div>
       </div>
       <!-- Hero Illustration -->
@@ -1223,34 +1152,21 @@
       </div>
     </section>
 
-    <!-- Featured Section (Spotlight) -->
-    <section class="section section--alt" id="featured">
+    <!-- Builds Section -->
+    <section class="section section--alt" id="builds">
       <div class="section__inner">
         <div class="section__header" data-aos="fade-up">
-          <p class="section__label"><span class="desktop-only">In the Spotlight</span><span class="mobile-only">Browser Tools</span></p>
-          <h2 class="section__title">Tools I've Built</h2>
+          <p class="section__label">Browser Tools</p>
+          <h2 class="section__title">What I've Built</h2>
         </div>
-        <div class="featured__grid" id="spotlight-grid">
+        <div class="builds__grid" id="builds-grid">
           <!-- Dynamically populated -->
         </div>
       </div>
     </section>
-
-    <!-- Tools Section -->
-    <section class="section" id="tools">
-      <div class="section__inner">
-        <div class="section__header" data-aos="fade-up">
-          <h2 class="section__title">Also Check Out</h2>
-        </div>
-        <div class="tools__grid" id="tools-grid">
-          <!-- Dynamically populated -->
-        </div>
-      </div>
-    </section>
-
 
     <!-- Principles Section -->
-    <section class="section section--alt" id="principles">
+    <section class="section" id="principles">
       <div class="section__inner">
         <div class="section__header" data-aos="fade-up">
           <p class="section__label">Philosophy</p>
@@ -1370,21 +1286,20 @@
       return shuffled;
     }
 
-    // Render spotlight cards (featured)
-    function renderSpotlight(tools) {
-      const grid = document.getElementById('spotlight-grid');
+    // Render all build cards
+    function renderBuilds(tools) {
+      const grid = document.getElementById('builds-grid');
       grid.innerHTML = tools.map((tool, index) => `
-        <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="featured-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-          <div class="featured-card__icon">
+        <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="build-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 80}">
+          <div class="build-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               ${tool.icon}
             </svg>
           </div>
-          <div class="featured-card__content">
-            <span class="featured-card__badge">Spotlight</span>
-            <h3 class="featured-card__title">${tool.name}</h3>
-            <p class="featured-card__desc">${tool.desc}</p>
-            <span class="featured-card__cta">
+          <div class="build-card__content">
+            <h3 class="build-card__title">${tool.name}</h3>
+            <p class="build-card__desc">${tool.desc}</p>
+            <span class="build-card__cta">
               Open Tool
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1395,29 +1310,9 @@
       `).join('');
     }
 
-    // Render tool cards (secondary)
-    function renderTools(tools) {
-      const grid = document.getElementById('tools-grid');
-      grid.innerHTML = tools.map((tool, index) => `
-        <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="tool-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-          <div class="tool-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              ${tool.icon}
-            </svg>
-          </div>
-          <h3 class="tool-card__name">${tool.name}</h3>
-          <p class="tool-card__desc">${tool.shortDesc}</p>
-        </a>
-      `).join('');
-    }
-
     // Initialize tools display
     const shuffledTools = shuffleArray(allTools);
-
-    // Render all tools in spotlight (mobile shows all, desktop shows first 2 via CSS)
-    renderSpotlight(shuffledTools);
-    // Render remaining 3 for desktop tools section
-    renderTools(shuffledTools.slice(2));
+    renderBuilds(shuffledTools);
 
     // Initialize AOS
     AOS.init({
