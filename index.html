@@ -877,12 +877,28 @@
         max-width: 100vw;
       }
 
-      /* More visible alternating backgrounds on mobile dark mode */
-      .section--alt {
+      /* Force alternating backgrounds on mobile */
+      #featured {
         background: var(--color-bg-alt);
       }
 
-      [data-theme="dark"] .section--alt {
+      #principles {
+        background: var(--color-bg);
+      }
+
+      #contact {
+        background: var(--color-bg-alt);
+      }
+
+      [data-theme="dark"] #featured {
+        background: #2a231b;
+      }
+
+      [data-theme="dark"] #principles {
+        background: var(--color-bg);
+      }
+
+      [data-theme="dark"] #contact {
         background: #2a231b;
       }
 
@@ -948,47 +964,40 @@
         height: 14px;
       }
 
-      /* Compact principles - horizontal scroll */
+      /* Principles - 2 columns top, 1 centered bottom */
       .principles__grid {
-        display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 16px;
-        -webkit-overflow-scrolling: touch;
-        margin-left: -24px;
-        margin-right: -24px;
-        padding-left: 24px;
-        padding-right: 24px;
-        width: calc(100% + 48px);
-      }
-
-      .section__inner {
-        width: 100%;
-        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
       }
 
       .principle-card {
-        min-width: 260px;
-        scroll-snap-align: start;
-        padding: 24px 20px;
+        padding: 20px 16px;
         background: var(--color-surface);
         border-radius: 16px;
         border: 1px solid var(--color-border);
       }
 
+      /* Third card spans full width and centers */
+      .principle-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
       .principle-card__number {
-        font-size: 36px;
-        margin-bottom: 8px;
+        font-size: 32px;
+        margin-bottom: 6px;
       }
 
       .principle-card__title {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 8px;
       }
 
       .principle-card__desc {
-        font-size: 13px;
+        font-size: 12px;
+        line-height: 1.5;
       }
 
       .contact__content {
