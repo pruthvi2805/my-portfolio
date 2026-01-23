@@ -433,9 +433,14 @@
 
     /* Honeypot field - hidden from humans, visible to bots */
     .form-field--honeypot {
-      position: absolute;
-      left: -9999px;
       opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      z-index: -1;
+      overflow: hidden;
       pointer-events: none;
     }
 
@@ -643,7 +648,7 @@
   <main>
     <div class="contact">
       <!-- Left: Info -->
-      <div class="contact__info" data-aos="fade-right" data-aos-duration="800">
+      <div class="contact__info" data-aos="fade-up" data-aos-duration="800">
         <p class="contact__label">Get in Touch</p>
         <h1 class="contact__title">Let's build something <span>together.</span></h1>
         <p class="contact__subtitle">
@@ -690,7 +695,7 @@
       </div>
 
       <!-- Right: Form -->
-      <div class="contact__form-wrapper" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+      <div class="contact__form-wrapper" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         <div class="form__header">
           <h3>Send a message</h3>
           <p>Fill out the form below and I'll get back to you.</p>
